@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mokoid.LedTest"
+    android:sharedUserId="android.uid.system">
+ 
+    <uses-permission android:name="android.permission.ACCESS_CHECKIN_PROPERTIES"/>   
+    <uses-permission android:name="android.permission.READ_USER_DICTIONARY"/>
+    <uses-permission android:name="android.permission.WRITE_USER_DICTIONARY"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application>
+    
+        <!-- This tells the system about the custom library used by the
+             application, so that it can be properly loaded and linked
+             to the app when the app is initialized. -->
+        <uses-library android:name="com.mokoid.server" />
+        
+        <activity android:name=".LedTest">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <service android:name=".LedSystemServer"
+                  android:process=".LedSystemServer" >
+            <intent-filter>
+                <action android:name="com.mokoid.systemserver"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+    </application>
+</manifest>

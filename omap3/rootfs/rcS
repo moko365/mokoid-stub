@@ -1,0 +1,17 @@
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
+export LD_LIBRARY_PATH="/usr/local/lib:/usr/lib:/lib:/lib/lib"
+
+export HOSTNAME="$(hostname)"
+
+export OLDPWD=/root
+export HOME=/root
+
+umask 022
+
+#This fixes the backspace when telnetting in.
+if [ "$TERM" != "linux" ]; then
+        stty erase ^H
+fi
+
+
+echo "Done"
