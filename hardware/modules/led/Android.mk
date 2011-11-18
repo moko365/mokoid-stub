@@ -18,7 +18,7 @@ include $(CLEAR_VARS)
 
 # our own branch needs these headers
 LOCAL_C_INCLUDES += \
-	vendor/mokoid/hardware/modules/include/
+	device/mokoid/hardware/modules/include/
 
 LOCAL_MODULE_TAGS := eng
 LOCAL_PRELINK_MODULE := false

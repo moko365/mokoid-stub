@@ -49,7 +49,7 @@ LOCAL_STATIC_LIBRARIES :=
 # Also need the JNI headers.
 LOCAL_C_INCLUDES += \
 	$(JNI_H_INCLUDE) \
-	vendor/mokoid/hardware/modules/include/
+	device/mokoid/hardware/modules/include/
 
 # No specia compiler flags.
 LOCAL_CFLAGS +=

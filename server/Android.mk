@@ -12,7 +12,7 @@ LOCAL_SHARED_LIBRARIES := \
 	libledservice
 
 LOCAL_C_INCLUDES :=  \
-	vendor/mokoid/libledservice
+	device/mokoid/libledservice
 
 LOCAL_MODULE_TAGS := eng
 
