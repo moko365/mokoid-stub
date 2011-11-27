@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, AndroIntActivity!</string>
+    <string name="title">Ex2: Perform A+B with Service/Binder</string>
+    <string name="app_name">AndroidIntegration-ex2-service</string>
+</resources>
