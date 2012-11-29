@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2010 The Android Open Source Project
- *
+ *Native service  的实现
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -53,7 +53,13 @@ public:
         remote()->transact(BnLedService::LED_ON, data, &reply);
         return 0;
     }
-
+    virtual int setOff(int led)
+    {
+        Parcel data, reply;
+        data.writeInterfaceToken(ILedService::getInterfaceDescriptor());
+        remote()->transact(BnLedService::LED_OFF, data, &reply);
+        return 0;
+    }
 };
 
 IMPLEMENT_META_INTERFACE(LedService, "mokoid.hardware.ILedService");
