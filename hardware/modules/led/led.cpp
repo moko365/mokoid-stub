@@ -70,7 +70,7 @@ int led_device_open(const struct hw_module_t* module, const char* name,
 
 	dev->common.tag =  HARDWARE_DEVICE_TAG;
 	dev->common.version = 0;
-	dev->common.module = module;
+	dev->common.module = const_cast<struct hw_module_t *>(module);
 	dev->common.close = led_device_close;
 
 	dev->set_on = led_on;

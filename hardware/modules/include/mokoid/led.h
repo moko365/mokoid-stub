@@ -38,6 +38,7 @@ struct led_control_device_t {
    /* supporting control APIs go here */
    int (*set_on)(struct led_control_device_t *dev, int32_t led);
    int (*set_off)(struct led_control_device_t *dev, int32_t led);
+   int (*set_name)(struct led_control_device_t *dev, char *name);
 };
 
 /*****************************************************************************/

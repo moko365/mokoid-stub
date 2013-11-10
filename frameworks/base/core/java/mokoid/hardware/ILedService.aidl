@@ -25,4 +25,5 @@ interface ILedService
 {
     boolean setOn(int led);
     boolean setOff(int led);
+    boolean setDeviceName(String name);
 }

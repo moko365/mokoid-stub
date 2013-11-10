@@ -30,7 +30,20 @@ mokoid_init(JNIEnv *env, jclass clazz)
     return -1;
 }
 
-static jboolean mokoid_setOn(JNIEnv* env, jobject thiz,)//jint led,jfloat timeout
+static jboolean mokoid_setDeviceName(JNIEnv* env, jobject thiz, jstring name)
+{
+    const char *buf;
+
+    if (sLedDevice == NULL) {
+        LOGI("LedService JNI: sLedDevice was not fetched correctly.");
+        return -1;
+    } else {
+        return 0;
+    }
+    return 0;
+}
+
+static jboolean mokoid_setOn(JNIEnv* env, jobject thiz, jint led)
 {
     LOGI("LedService JNI: mokoid_setOn() is invoked.");
 
@@ -44,8 +57,7 @@ static jboolean mokoid_setOn(JNIEnv* env, jobject thiz,)//jint led,jfloat timeou
     return 0;
 }
 
-static jboolean mokoid_setOff(JNIEnv* env, jobject thiz, jint led, jfloat x,
-				jobject str)
+static jboolean mokoid_setOff(JNIEnv* env, jobject thiz, jint led)
 {
     LOGI("LedService JNI: mokoid_setOff() is invoked.");
 
@@ -67,6 +79,8 @@ static const JNINativeMethod gMethods[] = {
                                                //(void*)mokoid_setOn },
     { "_set_off",          "(I)Z",
                         (void*)mokoid_setOff },
+    { "_set_device_name",          "(Ljava/lang/String;)Z",
+                        (void*)mokoid_setDeviceName },
 };
 
 int registerMethods(JNIEnv* env) {

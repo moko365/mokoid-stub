@@ -25,8 +25,8 @@
 #include <utils/Errors.h>
 #include <utils/RefBase.h>
 #include <utils/String16.h>
-#include <binder/Binder.h>
-#include <binder/IServiceManager.h>
+#include <utils/Binder.h>
+#include <utils/IServiceManager.h>
 
 #include <mokoid/led.h>
 
@@ -36,7 +36,7 @@ namespace android {
 // ---------------------------------------------------------------------------
 
 /*
- * Binder proxy object implementation
+ * utils proxy object implementation
  */
 class BpLedService: public BpInterface<ILedService>
 {

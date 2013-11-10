@@ -48,15 +48,20 @@ public final class LedService extends ILedService.Stub {
      */
     public boolean setOn(int led) {
         Log.i("MokoidPlatform", "LED On");
-	return _set_on(led);
+        return _set_on(led);
     }
 
     public boolean setOff(int led) {
         Log.i("MokoidPlatform", "LED Off");
-	return _set_off(led);
+        return _set_off(led);
+    }
+
+    public boolean setDeviceName(String name) {
+        return _set_device_name(name);
     }
 
     private static native boolean _init();
     private static native boolean _set_on(int led);
     private static native boolean _set_off(int led);
+    private static native boolean _set_device_name(String name);
 }

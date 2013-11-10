@@ -1,6 +1,6 @@
 #include <utils/RefBase.h>
-#include <binder/IInterface.h>
-#include <binder/Parcel.h>
+#include <utils/IInterface.h>
+#include <utils/Parcel.h>
 
 namespace android {
 
@@ -9,7 +9,8 @@ class ILedService : public IInterface
 public:
    enum {
         CONNECT = IBinder::FIRST_CALL_TRANSACTION,
-        LED_ON 
+        LED_ON,
+        LED_OFF
    };
 
 public:

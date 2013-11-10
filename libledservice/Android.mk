@@ -15,7 +15,7 @@ LOCAL_SHARED_LIBRARIES += \
 
 LOCAL_C_INCLUDES += \
 	frameworks/base/include \
-	device/mokoid/hardware/modules/include
+	vendor/mokoid/hardware/modules/include
 
 LOCAL_MODULE_TAGS := eng
 
