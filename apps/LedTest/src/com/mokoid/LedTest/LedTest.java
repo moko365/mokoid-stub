@@ -15,6 +15,7 @@
  */
 
 package com.mokoid.LedTest;
+import mokoid.hardware.Led;
 import mokoid.hardware.LedManager;
 import mokoid.hardware.LedEventListener;
 import com.mokoid.server.LedService;
@@ -57,21 +58,24 @@ public class LedTest extends Activity implements View.OnClickListener,
 
         // Get LedManager.
         if (mLedManager == null) {
-	    Log.i("LedTest", "Creat a new LedManager object.");
-	    mLedManager = new LedManager();
-	    mLedManager.registerListener(this);
+            Log.i("LedTest", "Creat a new LedManager object.");
+            mLedManager = new LedManager();
+            mLedManager.registerListener(this);
         }
 
         if (mLedManager != null) {
-	    Log.i("LedTest", "Got LedManager object.");
-	}
+	        Log.i("LedTest", "Got LedManager object.");
+	    }
 
         /** Call methods in LedService via proxy object 
          * which is provided by LedManager. 
          */
 
-	mLedManager.LedOn(1); 
+        mLedManager.LedOn(1); 
 
+        /* Using Native LedService */
+        Led led = new Led();
+        led.LedOn(1);
 
         TextView tv = new TextView(this);
         tv.setText("LED 1 is On.");
