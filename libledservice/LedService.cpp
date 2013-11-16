@@ -60,6 +60,14 @@ public:
         remote()->transact(BnLedService::LED_OFF, data, &reply);
         return 0;
     }
+    virtual int setDeviceName(char *name)
+    {
+        Parcel data, reply;
+        data.writeInterfaceToken(ILedService::getInterfaceDescriptor());
+        data.writeCString(name);
+        remote()->transact(BnLedService::SET_DEVICE_NAME, data, &reply);
+        return 0;
+    }
 };
 
 IMPLEMENT_META_INTERFACE(LedService, "mokoid.hardware.ILedService");
@@ -78,8 +86,12 @@ status_t BnLedService::onTransact(
             CHECK_INTERFACE(ILedService, data, reply);
             return NO_ERROR;
         } break;
-	case LED_ON:
-	    return NO_ERROR;
+        case SET_DEVICE_NAME: {
+            CHECK_INTERFACE(ILedService, data, reply);
+            const char *name = data.readCString();
+            setDeviceName(const_cast<char *>(name));
+            return NO_ERROR;
+        } break;
         default:
             return BBinder::onTransact(code, data, reply, flags);
     }
@@ -110,10 +122,17 @@ LedService::LedService()
 LedService::~LedService()
 {
 }
+
 //Singleton
 void LedService::instantiate() {
      defaultServiceManager()->addService(
              String16("mokoid.led"), new LedService());
+}
+
+int LedService::setDeviceName(char *name)
+{
+    LOGI("ledserver: name = %s", name);
+    return 0;
 }
 
 int LedService::setOn(int led)

@@ -10,7 +10,8 @@ public:
    enum {
         CONNECT = IBinder::FIRST_CALL_TRANSACTION,
         LED_ON,
-        LED_OFF
+        LED_OFF,
+        SET_DEVICE_NAME
    };
 
 public:
@@ -22,7 +23,8 @@ public:
      */
     DECLARE_META_INTERFACE(LedService);
 
-    int setOn(int led);
+    virtual int setOn(int led) = 0;
+    virtual int setDeviceName(char *name) = 0;
 };
 
 
@@ -40,6 +42,7 @@ class LedService : public BnLedService
 public:
     static void instantiate();
     virtual int setOn(int led);
+    int setDeviceName(char *name);
 
 private:
     LedService();
