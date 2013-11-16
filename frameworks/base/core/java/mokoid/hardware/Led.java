@@ -46,16 +46,14 @@ public class Led
     }
     
     public boolean LedOn(int n) {
-        _led_on();
-        return true;
+        return _led_on(n);
     }
 
     public boolean LedOff(int n) {
-        _led_off();
-        return true;
+        return _led_off(n);
     }
 
     private static native boolean _init();
-    private static native boolean _led_on();
-    private static native boolean _led_off();
+    private static native boolean _led_on(int n);
+    private static native boolean _led_off(int n);
 }
